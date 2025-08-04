@@ -1,13 +1,11 @@
 package com.timecapsule.timecapsule;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("time-capsules")
+@RequestMapping("/time-capsules")
 public class TimeCapsuleController {
 
     private final TimeCapsuleService timeCapsuleService;
@@ -16,9 +14,15 @@ public class TimeCapsuleController {
         this.timeCapsuleService = timeCapsuleService;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<TimeCapsule> getTimeCapsules(){
         return timeCapsuleService.getAllTimeCapsules();
     }
+
+    @PostMapping()
+    public void setTimeCapsules(@RequestBody TimeCapsule timeCapsules){
+        timeCapsuleService.setTimeCapsules(timeCapsules);
+    }
+
 
 }

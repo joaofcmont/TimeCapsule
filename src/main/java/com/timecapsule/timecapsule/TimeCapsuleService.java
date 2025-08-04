@@ -1,6 +1,7 @@
 package com.timecapsule.timecapsule;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -17,5 +18,9 @@ public class TimeCapsuleService {
     public List<TimeCapsule> getAllTimeCapsules(){
           return timeCapsuleRepository.findAll();
     }
+
+   public void setTimeCapsules(TimeCapsule timeCapsules){
+       timeCapsuleRepository.save(timeCapsules);
+   }
 
 }
