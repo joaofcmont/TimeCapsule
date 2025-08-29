@@ -1,10 +1,7 @@
 package com.timecapsule.timecapsule;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -14,15 +11,16 @@ public class TimeCapsule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false)
     private String name;
+
     private String messages;
 
-    public TimeCapsule(){
-    }
+    public TimeCapsule(){}
 
-    public TimeCapsule(Integer id){}
 
-    public TimeCapsule(Integer id, String name, String messages){
+    public TimeCapsule(Integer id,  String name, String messages){
         this.id=id;
         this.name=name;
         this.messages=messages;
@@ -40,11 +38,11 @@ public class TimeCapsule {
         return this.messages;
     }
 
-    public void setName(String name){
+    public void setName( String name){
         this.name = name;
     }
 
-    public void setMessages(String messages){
+    public void setMessages( String messages){
         this.messages=messages;
     }
 

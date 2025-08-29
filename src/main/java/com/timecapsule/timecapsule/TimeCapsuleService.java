@@ -1,11 +1,10 @@
 package com.timecapsule.timecapsule;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
-//available to use in other classes
 @Service
 public class TimeCapsuleService {
 
@@ -17,6 +16,10 @@ public class TimeCapsuleService {
 
     public List<TimeCapsule> getAllTimeCapsules(){
           return timeCapsuleRepository.findAll();
+    }
+
+    public Optional<TimeCapsule> findById(Integer id){
+        return timeCapsuleRepository.findById(id);
     }
 
    public void setTimeCapsules(TimeCapsule timeCapsules){
