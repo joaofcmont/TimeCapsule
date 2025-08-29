@@ -2,9 +2,9 @@ package com.timecapsule.timecapsule;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class TimeCapsuleController {
 
@@ -19,14 +19,14 @@ public class TimeCapsuleController {
         return timeCapsuleService.getAllTimeCapsules();
     }
 
-    @PostMapping("/time-capsule")
-    public void setTimeCapsules(@RequestBody TimeCapsule timeCapsules){
-        timeCapsuleService.setTimeCapsules(timeCapsules);
-    }
-
     @GetMapping("/time-capsules/{id}")
     public TimeCapsule getOneTimeCapsule(@PathVariable Integer id){
         return timeCapsuleService.findById(id).orElseThrow(() -> new TimeCapsuleNotFoundException(id));
+    }
+
+    @PostMapping("/time-capsule")
+    public void setTimeCapsules(@RequestBody TimeCapsule timeCapsules){
+        timeCapsuleService.setTimeCapsules(timeCapsules);
     }
 
 
