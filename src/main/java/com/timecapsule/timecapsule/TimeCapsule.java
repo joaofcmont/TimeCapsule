@@ -2,7 +2,9 @@ package com.timecapsule.timecapsule;
 
 
 import jakarta.persistence.*;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -17,13 +19,16 @@ public class TimeCapsule {
 
     private String messages;
 
+    private LocalDate date;
+
     public TimeCapsule(){}
 
 
-    public TimeCapsule(Integer id,  String name, String messages){
+    public TimeCapsule(Integer id,  String name, String messages, LocalDate date){
         this.id=id;
         this.name=name;
         this.messages=messages;
+        this.date=date;
     }
 
     public Integer getId(){
@@ -44,6 +49,14 @@ public class TimeCapsule {
 
     public void setMessages( String messages){
         this.messages=messages;
+    }
+
+    public LocalDate getDate(){
+        return this.date;
+    }
+
+    public void setDate(LocalDate date){
+        this.date = date;
     }
 
     @Override

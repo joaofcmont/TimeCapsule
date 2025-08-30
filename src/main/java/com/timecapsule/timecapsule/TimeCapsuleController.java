@@ -29,6 +29,4 @@ public class TimeCapsuleController {
         timeCapsuleService.setTimeCapsules(timeCapsules);
     }
 
-
-
 }
